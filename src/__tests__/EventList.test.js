@@ -5,8 +5,8 @@ import Event from '../components/Event';
 
 describe('<EventList />',() => {
   test('render correct number of events', () => {
-    const EventListComponent = shallow(<EventList />);
-    EventListComponent.setState({events: [{ id:1 }, { id:2 }, { id:3 }, { id:4 }]});
+    const events = [{ id:1 }, { id:2 }, { id:3 }, { id:4 }];
+    const EventListComponent = shallow(<EventList events={events} />);
     expect(EventListComponent.find(Event)).toHaveLength(4)
   });
 });

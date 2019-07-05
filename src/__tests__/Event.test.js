@@ -60,18 +60,18 @@ describe('<Event />', () => {
   });
 
   test('should render collapsed event on initial render', () => {
-    expect(EventComponent.find('.collapsed')).toHaveLength(1);
+    expect(EventComponent.find('.name')).toHaveLength(1);
   })
 
   test('should render basic event info', () => {
-    expect(EventComponent.find('.Event li').at(0).text()).toBe(eventProp.name)
+    expect(EventComponent.find('.Event div').at(1).text()).toBe(eventProp.name)
 
   });
 
   test('Should render extra details when details button is clicked', () => {
     EventComponent.state('collapsed')
-    EventComponent.find('.Button').simulate('click');
-    expect(EventComponent.state('collapsed')).toBe(true);
-    expect(EventComponent.find('.Details')).toHaveLength(1);
+    EventComponent.find('button').simulate('click');
+    expect(EventComponent.state('collapsed')).toBe(false);
+    expect(EventComponent.find('.extra')).toHaveLength(1);
   })
 })
