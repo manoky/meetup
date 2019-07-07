@@ -7,10 +7,7 @@ describe('show/hide an event details', () => {
   let page;
 
   beforeAll( async () => {
-    browser = await puppeteer.launch({
-      headless: false,
-      slowMo: 250
-    });
+    browser = await puppeteer.launch();
 
     page = await browser.newPage();
     await page.goto('http://localhost:3000/');
@@ -38,5 +35,6 @@ describe('show/hide an event details', () => {
     await page.click('.Event .details-btn');
     const extra = await page.$('.Event .extra');
     expect(extra).toBeNull();
-  })
+  });
+
 });
